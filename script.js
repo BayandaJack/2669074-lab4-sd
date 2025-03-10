@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     if (countryInfo.flags && countryInfo.flags.png) {
                         flagImg.src = countryInfo.flags.png;
+                        flagImg.alt = `Flag of ${countryInfo.name.common}`;
                         flagImg.style.width = "100px"; // Set flag size
                         flag.appendChild(flagImg);
                         ul.appendChild(flag);
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     // Create list item for each border country flag and name
                                     const borderLi = document.createElement("li");
 
-                                    // Get the flag image and name
+                                    // Get the flag image
                                     const borderFlagImg = document.createElement("img");
                                     if (borderCountry.flags && borderCountry.flags.png) {
                                         borderFlagImg.src = borderCountry.flags.png;
@@ -74,12 +75,12 @@ document.addEventListener('DOMContentLoaded', function() {
                                         borderFlagImg.style.width = "50px"; // Set border flag size
                                     }
 
-                                    const borderName = document.createElement("span");
-                                    borderName.textContent = borderCountry.name.common; // Full country name
+                                    // Add the country name as text content to the list item
+                                    borderLi.textContent = borderCountry.name.common; // Full country name
 
-                                    // Append image and name of the border country to the list item
-                                    borderLi.appendChild(borderName);
                                     borderLi.appendChild(borderFlagImg);
+
+                                    // Append the border country list item to the border details list
                                     borderUl.appendChild(borderLi);
                                 })
                                 .catch(error => {
