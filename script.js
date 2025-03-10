@@ -21,11 +21,11 @@ function getCountryData(country){
             //
             const countryInfo = data[0];
             const capital = document.createElement("li")
-            capital.textContent = `Capital: ${countryInfo.capital[0]}`;
+            capital.textContent = `Capital: ${countryInfo.capital ? countryInfo.capital[0] : "N/A"}`;
             ul.appendChild(capital);
             //
             const pop = document.createElement("li")
-            pop.textContent = `Population: ${countryInfo.pop}`;
+            pop.textContent = `Population: ${countryInfo.population}`;
             ul.appendChild(pop);
             //
             const region = document.createElement("li")
@@ -43,5 +43,6 @@ function getCountryData(country){
         })
         .catch((error) => {
             throw new Error("An error occurred fetching the data")
+            console.error("An error occurred fetching the data", error);
         })
     }
