@@ -13,7 +13,7 @@ form.addEventListener("submit", function(event) {
 
 
 function getCountryData(country){
-    fetch(`https://restcountries.com/v3.1/${country}`)
+    fetch(`https://restcountries.com/v3.1/name/${country}`)
         .then((response) => {
             response.json()
         }).then((data) => {
@@ -32,7 +32,7 @@ function getCountryData(country){
             const flag = document.createElement("li")
             capital.textContent = `Flag: ${data.flags.png}`;
             ul.appendChild(flag);
-            //console.log(data);
+            //console.log(data.name);
         })
         .catch((error) => {
             throw new Error("An error occurred fetching the data")
