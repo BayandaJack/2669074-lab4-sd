@@ -18,6 +18,7 @@ function getCountryData(country){
         .then((response) => {
             return response.json()
         }).then((data) => {
+            //
             const countryInfo = data[0];
             const capital = document.createElement("li")
             capital.textContent = `Capital: ${countryInfo.capital[0]}`;
