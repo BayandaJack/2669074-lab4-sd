@@ -19,7 +19,7 @@ function getCountryData(country){
         }).then((data) => {
             const countryInfo = data[0];
             const capital = document.createElement("li")
-            capital.textContent = `Capital: ${countryInfo.capital}`;
+            capital.textContent = `Capital: ${countryInfo.capital[0]}`;
             ul.appendChild(capital);
             //
             const pop = document.createElement("li")
@@ -30,8 +30,12 @@ function getCountryData(country){
             region.textContent = `Region: ${countryInfo.region}`;
             ul.appendChild(region);
             //
-            const flag = document.createElement("li")
-            flag.textContent = `Flag: ${countryInfo.flags.png}`;
+            const flag = document.createElement("li");
+            const flagImg = document.createElement("img");
+            flagImg.src = countryInfo.flags.png;
+            //flagImg.alt = `Flag of ${countryInfo.name.common}`;
+            flagImg.style.width = "100px"; // Set flag size
+            flag.appendChild(flagImg);
             ul.appendChild(flag);
             //console.log(data.name);
         })
