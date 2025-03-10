@@ -1,5 +1,6 @@
 const form = document.querySelector("#countryForm");
 const countryInput = document.querySelector("#countryInput");
+const ul = document.querySelector("#countryDetails");
 
 form.addEventListener("submit", function(event) {
     event.preventDefault(); //prevent page reload
@@ -7,7 +8,7 @@ form.addEventListener("submit", function(event) {
     if (countryName){
         getCountryData(countryName)
     } else{
-
+        alert("Enter a country name!");
     }
 })
 
