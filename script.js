@@ -15,22 +15,23 @@ form.addEventListener("submit", function(event) {
 function getCountryData(country){
     fetch(`https://restcountries.com/v3.1/name/${country}`)
         .then((response) => {
-            response.json()
+            return response.json()
         }).then((data) => {
+            const countryInfo = data[0];
             const capital = document.createElement("li")
-            capital.textContent = `Capital: ${data.capital}`;
+            capital.textContent = `Capital: ${countryInfo.capital}`;
             ul.appendChild(capital);
             //
             const pop = document.createElement("li")
-            pop.textContent = `Population: ${data.pop}`;
+            pop.textContent = `Population: ${countryInfo.pop}`;
             ul.appendChild(pop);
             //
             const region = document.createElement("li")
-            region.textContent = `Region: ${data.region}`;
+            region.textContent = `Region: ${countryInfo.region}`;
             ul.appendChild(region);
             //
             const flag = document.createElement("li")
-            capital.textContent = `Flag: ${data.flags.png}`;
+            flag.textContent = `Flag: ${countryInfo.flags.png}`;
             ul.appendChild(flag);
             //console.log(data.name);
         })
