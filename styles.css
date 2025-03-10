@@ -1,15 +1,15 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: lightblue;
 }
 
 #country-info {
-    background-color: lightblue;
     padding: 20px;
 }
 
 ul {
-    list-style-type: none;
-    padding: 0;
+    padding: 10px;
+    margin: 10px;
 }
 
 li {
